@@ -18,7 +18,13 @@ class MyApp extends StatelessWidget {
               expandedHeight: 200,
               floating: true,
               flexibleSpace: FlexibleSpaceBar(
-                  title: Text("ANIMAL INTRODUCTION"),
+                  title: Text(
+                    "ANIMAL INTRODUCTION",
+                    style: TextStyle(
+                        fontFamily: "IndieFlower",
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
                   centerTitle: false,
                   background: Image.network(
                     "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/101654047/original/faf99cd3c06f13ec1fdfe57cebb3fa89a5852519/draw-cartoons-for-you.png",
