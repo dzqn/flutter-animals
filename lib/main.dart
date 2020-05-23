@@ -33,26 +33,39 @@ class MyApp extends StatelessWidget {
             ),
             SliverList(
                 delegate: SliverChildBuilderDelegate((index, context) {
-              return Row(
-                children: <Widget>[
-                  getExpandedContainer(index),
-                  getExpandedContainer(index)
-                ],
+              return Center(
+                child: Wrap(
+                  spacing: 5.0,
+                  children: <Widget>[
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                    getExpandedContainer(),
+                  ],
+                ),
               );
-            }, childCount: 5))
+            }, childCount: 1))
           ],
         )));
   }
 
-  Expanded getExpandedContainer(index) {
+  Expanded getExpandedContainer() {
     return Expanded(
         flex: 1,
         child: Container(
+            alignment: Alignment.center,
             padding: EdgeInsets.all(5),
-            height: 150,
+            height: 190,
+            width: 190,
             child: Card(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
+                    borderRadius: BorderRadius.circular(15.0)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
@@ -67,7 +80,12 @@ class MyApp extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    Container(child: Text("LEON"))
+                    Container(
+                        child: Text("LEON",
+                            style: TextStyle(
+                                fontFamily: "IndieFlower",
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold)))
                   ],
                 ))));
   }
