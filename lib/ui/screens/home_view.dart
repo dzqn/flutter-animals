@@ -19,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
                 "ANIMAL INTRODUCTION",
                 style: TextStyle(
                     fontFamily: "IndieFlower",
-                    color: Colors.black,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
               centerTitle: false,
