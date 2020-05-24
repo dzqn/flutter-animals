@@ -64,6 +64,9 @@ flutter:
     - family: IndieFlower
       fonts:
         - asset: assets/fonts/IndieFlower-Regular.ttf
+    - family: CoveredByYourGrace
+      fonts:
+        - asset: assets/fonts/CoveredByYourGrace-Regular.ttf
         
           
   #

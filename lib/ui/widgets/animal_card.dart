@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 
 class AnimalCard extends StatelessWidget {
+  //final BuildContext ctx;
   final String animalImage;
   final String name;
 
   AnimalCard({this.animalImage, this.name});
 
-  @override
   Widget build(BuildContext context) {
     return Expanded(
         flex: 1,
-        child: Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(5),
-            height: 190,
-            width: 190,
-            child: buildAnimalCard()));
+        child: InkWell(
+          onTap: () {
+            print("object");
+            Navigator.pushNamed(context, "/animalDetail");
+          },
+          child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(5),
+              height: 190,
+              width: 190,
+              child: buildAnimalCard()),
+        ));
   }
 
   Card buildAnimalCard() {

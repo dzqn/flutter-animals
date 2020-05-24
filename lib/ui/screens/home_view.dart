@@ -22,13 +22,14 @@ class _HomeViewState extends State<HomeView> {
         floating: true,
         flexibleSpace: FlexibleSpaceBar(
             title: Text(
-              "ANIMAL INTRODUCTION",
+              "HAYVANLARI TANIYALIM",
               style: TextStyle(
-                  fontFamily: "IndieFlower",
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
+                fontFamily: "CoveredByYourGrace",
+                color: Colors.white,
+                //fontWeight: FontWeight.bold,
+              ),
             ),
-            centerTitle: false,
+            centerTitle: true,
             background: Image.network(
               "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/101654047/original/faf99cd3c06f13ec1fdfe57cebb3fa89a5852519/draw-cartoons-for-you.png",
               fit: BoxFit.scaleDown,
