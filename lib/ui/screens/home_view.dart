@@ -36,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
             )),
       ),
       SliverList(
-          delegate: SliverChildBuilderDelegate((index, context) {
+          delegate: SliverChildBuilderDelegate((context, index) {
         return Center(
           child: Wrap(
             spacing: 3.0,
