@@ -12,7 +12,6 @@ class AnimalCard extends StatelessWidget {
         flex: 1,
         child: InkWell(
           onTap: () {
-            print("object");
             Navigator.pushNamed(context, "/animalDetail");
           },
           child: Container(
@@ -52,7 +51,7 @@ class AnimalCard extends StatelessWidget {
     return Container(
         child: Text(name,
             style: TextStyle(
-                fontFamily: "IndieFlower",
+                fontFamily: "CoveredByYourGrace",
                 fontSize: 20,
                 fontWeight: FontWeight.bold)));
   }

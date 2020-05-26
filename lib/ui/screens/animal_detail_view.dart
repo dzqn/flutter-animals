@@ -44,13 +44,71 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
   }
 
   Widget getfirstContainer(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-      color: Colors.red,
-      elevation: 20.0,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.2,
+    return Container(
+      margin: EdgeInsets.only(top: 15),
+      width: MediaQuery.of(context).size.width * 0.9,
+      child: Card(
+        elevation: 10,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Center(
+                      child: Text("YAŞAM SÜRESİ",
+                          style: TextStyle(
+                              fontFamily: "CoveredByYourGrace",
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold))),
+                  flex: 1,
+                ),
+                Container(
+                  height: 50,
+                  child: VerticalDivider(
+                    width: 10,
+                  ),
+                ),
+                Expanded(
+                  child: Center(
+                      child: Text("AĞIRLIK",
+                          style: TextStyle(
+                              fontFamily: "CoveredByYourGrace",
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold))),
+                  flex: 1,
+                )
+              ],
+            ),
+            Divider(
+              height: 10,
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Center(
+                      child: Text(
+                    "10-14 yıl",
+                    style: TextStyle(fontSize: 20, fontFamily: "IndieFlower"),
+                  )),
+                  flex: 1,
+                ),
+                Container(
+                  height: 50,
+                  child: VerticalDivider(),
+                ),
+                Expanded(
+                  child: Center(
+                      child: Text("190 kg.",
+                          style: TextStyle(
+                              fontSize: 20, fontFamily: "IndieFlower"))),
+                  flex: 1,
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
