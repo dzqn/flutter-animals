@@ -138,7 +138,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "AKaplanlar genel olarak yalnız başlarına gezerler ve bölgeci hayvanlardır. Kendi bölgelerini korurlar ve bölgelerine giren diğer kaplanlara, yırtıcılara ve insanlara karşı oldukça agresif olabilirler. Modern kaplan türlerinin dokuzunun soyu tükenmiştir. Kalan altı tür de tehlike altındadır.",
+                "Kaplanlar genel olarak yalnız başlarına gezerler ve bölgeci hayvanlardır. Kendi bölgelerini korurlar ve bölgelerine giren diğer kaplanlara, yırtıcılara ve insanlara karşı oldukça agresif olabilirler. .",
                 style: TextStyle(fontFamily: "IndieFlower", fontSize: 20),
               ),
             )
@@ -171,7 +171,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "AKaplanlar genel olarak yalnız başlarına gezerler ve bölgeci hayvanlardır. Kendi bölgelerini korurlar ve bölgelerine giren diğer kaplanlara, yırtıcılara ve insanlara karşı oldukça agresif olabilirler. Modern kaplan türlerinin dokuzunun soyu tükenmiştir. Kalan altı tür de tehlike altındadır.",
+                "Kaplanlar genel olarak yalnız başlarına gezerler ve bölgeci hayvanlardır. Kendi bölgelerini korurlar ve bölgelerine giren diğer kaplanlara, yırtıcılara ve insanlara karşı oldukça agresif olabilirler. Modern kaplan türlerinin dokuzunun soyu tükenmiştir. Kalan altı tür de tehlike altındadır.",
                 style: TextStyle(fontFamily: "IndieFlower", fontSize: 20),
               ),
             )
