@@ -17,13 +17,13 @@ class AnimalCard extends StatelessWidget {
           child: Container(
               alignment: Alignment.center,
               padding: EdgeInsets.all(5),
-              height: MediaQuery.of(context).size.height * 0.3,
+              //height: MediaQuery.of(context).size.height * 0.3,
               width: MediaQuery.of(context).size.width * 0.45,
-              child: buildAnimalCard()),
+              child: buildAnimalCard(context)),
         ));
   }
 
-  Card buildAnimalCard() {
+  Card buildAnimalCard(BuildContext context) {
     return Card(
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
@@ -31,19 +31,17 @@ class AnimalCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            buildCarTopContainer(),
+            buildCarTopContainer(context),
             buildCardCenterSizedBox(),
             buildCardBottomContainer()
           ],
         ));
   }
 
-  SizedBox buildCardCenterSizedBox() {
-    return SizedBox(
-      height: 1,
-      child: Container(
-        color: Colors.grey,
-      ),
+  Widget buildCardCenterSizedBox() {
+    return Divider(
+      height: 15,
+      color: Colors.white,
     );
   }
 
@@ -56,9 +54,9 @@ class AnimalCard extends StatelessWidget {
                 fontWeight: FontWeight.bold)));
   }
 
-  Container buildCarTopContainer() {
+  Container buildCarTopContainer(BuildContext context) {
     return Container(
-      height: 90,
+      height: MediaQuery.of(context).size.height * 0.2,
       child: Image.network(animalImage),
     );
   }
