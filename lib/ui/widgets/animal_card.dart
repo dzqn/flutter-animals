@@ -17,8 +17,8 @@ class AnimalCard extends StatelessWidget {
           child: Container(
               alignment: Alignment.center,
               padding: EdgeInsets.all(5),
-              height: 190,
-              width: 190,
+              height: MediaQuery.of(context).size.height * 0.3,
+              width: MediaQuery.of(context).size.width * 0.45,
               child: buildAnimalCard()),
         ));
   }
