@@ -34,7 +34,9 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
           delegate: SliverChildBuilderDelegate((context, index) {
             return Column(
               children: <Widget>[
-                getfirstContainer(context),
+                getGeneralData(),
+                getDoYouKnowData(),
+                getDetailData()
               ],
             );
           }, childCount: 1),
@@ -43,7 +45,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
     ));
   }
 
-  Widget getfirstContainer(BuildContext context) {
+  Widget getGeneralData() {
     return Container(
       margin: EdgeInsets.only(top: 15),
       width: MediaQuery.of(context).size.width * 0.9,
@@ -57,7 +59,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
               children: <Widget>[
                 Expanded(
                   child: Center(
-                      child: Text("YAŞAM SÜRESİ",
+                      child: Text("Yaşam Süresi",
                           style: TextStyle(
                               fontFamily: "CoveredByYourGrace",
                               fontSize: 24,
@@ -72,7 +74,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
                 ),
                 Expanded(
                   child: Center(
-                      child: Text("AĞIRLIK",
+                      child: Text("Ağırlık",
                           style: TextStyle(
                               fontFamily: "CoveredByYourGrace",
                               fontSize: 24,
@@ -106,6 +108,72 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
                   flex: 1,
                 )
               ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget getDoYouKnowData() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      margin: EdgeInsets.only(top: 10),
+      child: Card(
+        elevation: 10,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "Biliyor muydun?",
+              style: TextStyle(
+                  fontFamily: "CoveredByYourGrace",
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+            ),
+            Divider(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "AKaplanlar genel olarak yalnız başlarına gezerler ve bölgeci hayvanlardır. Kendi bölgelerini korurlar ve bölgelerine giren diğer kaplanlara, yırtıcılara ve insanlara karşı oldukça agresif olabilirler. Modern kaplan türlerinin dokuzunun soyu tükenmiştir. Kalan altı tür de tehlike altındadır.",
+                style: TextStyle(fontFamily: "IndieFlower", fontSize: 20),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget getDetailData() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      margin: EdgeInsets.only(top: 10, bottom: 10),
+      child: Card(
+        elevation: 10,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "Detay",
+              style: TextStyle(
+                  fontFamily: "CoveredByYourGrace",
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+            ),
+            Divider(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "AKaplanlar genel olarak yalnız başlarına gezerler ve bölgeci hayvanlardır. Kendi bölgelerini korurlar ve bölgelerine giren diğer kaplanlara, yırtıcılara ve insanlara karşı oldukça agresif olabilirler. Modern kaplan türlerinin dokuzunun soyu tükenmiştir. Kalan altı tür de tehlike altındadır.",
+                style: TextStyle(fontFamily: "IndieFlower", fontSize: 20),
+              ),
             )
           ],
         ),
