@@ -1,4 +1,4 @@
-# ttaranimal
+# Basic App
 Basic animal app
 
 
