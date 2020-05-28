@@ -1,4 +1,3 @@
 # ttaranimal
-
-Animals.
+Basic animal app
 
