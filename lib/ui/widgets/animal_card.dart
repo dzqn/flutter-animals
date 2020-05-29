@@ -7,19 +7,17 @@ class AnimalCard extends StatelessWidget {
   AnimalCard({this.animalImage, this.name});
 
   Widget build(BuildContext context) {
-    return Expanded(
-        flex: 1,
-        child: InkWell(
-          onTap: () {
-            Navigator.pushNamed(context, "/animalDetail");
-          },
-          child: Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(5),
-              //height: MediaQuery.of(context).size.height * 0.3,
-              width: MediaQuery.of(context).size.width * 0.45,
-              child: buildAnimalCard(context)),
-        ));
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, "/animalDetail");
+      },
+      child: Container(
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(5),
+          //height: MediaQuery.of(context).size.height * 0.3,
+          width: MediaQuery.of(context).size.width * 0.45,
+          child: buildAnimalCard(context)),
+    );
   }
 
   Card buildAnimalCard(BuildContext context) {

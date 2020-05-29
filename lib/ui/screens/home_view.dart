@@ -25,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
       SliverAppBar(
         expandedHeight: 200,
         floating: true,
-        flexibleSpace: getFexibleSpaceBar(),
+        flexibleSpace: _getFexibleSpaceBar(),
       ),
       SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
@@ -36,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
                 case ConnectionState.done:
                   if (snapshot.hasData) {
                     animalList = snapshot.data;
-                    return listView();
+                    return _getCards();
                   } else {
                     return Text("ERROR");
                   }
@@ -51,22 +51,7 @@ class _HomeViewState extends State<HomeView> {
     ];
   }
 
-  Widget listView() {
-    return Center(
-      child: Wrap(
-        spacing: 3.0,
-        children: <Widget>[
-          for (var item in animalList)
-            AnimalCard(
-              animalImage: item.image.cartoonImage,
-              name: item.name,
-            )
-        ],
-      ),
-    );
-  }
-
-  FlexibleSpaceBar getFexibleSpaceBar() {
+  FlexibleSpaceBar _getFexibleSpaceBar() {
     return FlexibleSpaceBar(
         title: Text(
           "HAYVANLARI TANIYALIM",
@@ -81,5 +66,20 @@ class _HomeViewState extends State<HomeView> {
           "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/101654047/original/faf99cd3c06f13ec1fdfe57cebb3fa89a5852519/draw-cartoons-for-you.png",
           fit: BoxFit.scaleDown,
         ));
+  }
+
+  Widget _getCards() {
+    return Center(
+      child: Wrap(
+        spacing: 3.0,
+        children: <Widget>[
+          for (var item in animalList)
+            AnimalCard(
+              animalImage: item.image.cartoonImage,
+              name: item.name,
+            )
+        ],
+      ),
+    );
   }
 }
