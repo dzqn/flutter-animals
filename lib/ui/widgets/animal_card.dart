@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AnimalCard extends StatelessWidget {
-  //final BuildContext ctx;
   final String animalImage;
   final String name;
 

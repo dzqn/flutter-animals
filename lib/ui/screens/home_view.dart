@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ttaranimal/core/models/animal.dart' as animal;
 import 'package:ttaranimal/ui/widgets/animal_card.dart';
+import 'package:ttaranimal/core/services/animal_service.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -7,6 +9,9 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final animalService = AnimalService.getAnimalInstance();
+  List<animal.Animal> animalList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,67 +25,61 @@ class _HomeViewState extends State<HomeView> {
       SliverAppBar(
         expandedHeight: 200,
         floating: true,
-        flexibleSpace: FlexibleSpaceBar(
-            title: Text(
-              "HAYVANLARI TANIYALIM",
-              style: TextStyle(
-                fontFamily: "CoveredByYourGrace",
-                color: Colors.white,
-                //fontWeight: FontWeight.bold,
-              ),
-            ),
-            centerTitle: true,
-            background: Image.network(
-              "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/101654047/original/faf99cd3c06f13ec1fdfe57cebb3fa89a5852519/draw-cartoons-for-you.png",
-              fit: BoxFit.scaleDown,
-            )),
+        flexibleSpace: getFexibleSpaceBar(),
       ),
       SliverList(
           delegate: SliverChildBuilderDelegate((context, index) {
-        return Center(
-          child: Wrap(
-            spacing: 3.0,
-            children: <Widget>[
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/pc78oEgRi.jpg",
-                name: "Kaplan",
-              ),
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/8izn5e8rT.jpg",
-                name: "Eşek",
-              ),
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/qcBo475Ri.jpg",
-                name: "Yengeç",
-              ),
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/8iEKeMyia.png",
-                name: "Arı",
-              ),
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/Biazn7Ai8.png",
-                name: "Köpek",
-              ),
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/ATbrEEkT4.gif",
-                name: "Eşek",
-              ),
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/kTMxba8Tj.png",
-                name: "Fok",
-              ),
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/di9yezbi7.jpg",
-                name: "Kaplan",
-              ),
-              AnimalCard(
-                animalImage: "http://clipart-library.com/images/zTXerqRTB.png",
-                name: "Maymun",
-              ),
-            ],
-          ),
-        );
+        return FutureBuilder<List<animal.Animal>>(
+            future: animalService.getAnimals(),
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.done:
+                  if (snapshot.hasData) {
+                    animalList = snapshot.data;
+                    return listView();
+                  } else {
+                    return Text("ERROR");
+                  }
+                  break;
+                default:
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+              }
+            });
       }, childCount: 1))
     ];
+  }
+
+  Widget listView() {
+    return Center(
+      child: Wrap(
+        spacing: 3.0,
+        children: <Widget>[
+          for (var item in animalList)
+            AnimalCard(
+              animalImage: item.image.cartoonImage,
+              name: item.name,
+            )
+        ],
+      ),
+    );
+  }
+
+  FlexibleSpaceBar getFexibleSpaceBar() {
+    return FlexibleSpaceBar(
+        title: Text(
+          "HAYVANLARI TANIYALIM",
+          style: TextStyle(
+            fontFamily: "CoveredByYourGrace",
+            color: Colors.white,
+            //fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        background: Image.network(
+          "https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/101654047/original/faf99cd3c06f13ec1fdfe57cebb3fa89a5852519/draw-cartoons-for-you.png",
+          fit: BoxFit.scaleDown,
+        ));
   }
 }
