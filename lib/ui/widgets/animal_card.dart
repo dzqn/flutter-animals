@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:ttaranimal/core/models/animal.dart' as animal;
 
 class AnimalCard extends StatelessWidget {
-  final String animalImage;
-  final String name;
+  final animal.Animal currentAnimal;
 
-  AnimalCard({this.animalImage, this.name});
+  AnimalCard({this.currentAnimal});
 
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, "/animalDetail");
+        Navigator.pushNamed(context, "/animalDetail", arguments: currentAnimal);
       },
       child: Container(
           alignment: Alignment.center,
           padding: EdgeInsets.all(5),
-          //height: MediaQuery.of(context).size.height * 0.3,
           width: MediaQuery.of(context).size.width * 0.45,
           child: buildAnimalCard(context)),
     );
@@ -44,7 +43,7 @@ class AnimalCard extends StatelessWidget {
 
   Container buildCardBottomContainer() {
     return Container(
-        child: Text(name,
+        child: Text(currentAnimal.name,
             style: TextStyle(
                 fontFamily: "CoveredByYourGrace",
                 fontSize: 20,
@@ -54,7 +53,7 @@ class AnimalCard extends StatelessWidget {
   Container buildCarTopContainer(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.2,
-      child: Image.network(animalImage),
+      child: Image.network(currentAnimal.image.cartoonImage),
     );
   }
 }

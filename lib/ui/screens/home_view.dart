@@ -75,8 +75,7 @@ class _HomeViewState extends State<HomeView> {
         children: <Widget>[
           for (var item in animalList)
             AnimalCard(
-              animalImage: item.image.cartoonImage,
-              name: item.name,
+              currentAnimal: item,
             )
         ],
       ),

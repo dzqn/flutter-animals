@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ttaranimal/core/models/animal.dart' as animal;
 
 class AnimalDetailView extends StatefulWidget {
   AnimalDetailView({Key key}) : super(key: key);
@@ -8,8 +9,10 @@ class AnimalDetailView extends StatefulWidget {
 }
 
 class _AnimalDetailViewState extends State<AnimalDetailView> {
+  animal.Animal _animal;
   @override
   Widget build(BuildContext context) {
+    _animal = ModalRoute.of(context).settings.arguments;
     return Scaffold(
         body: CustomScrollView(
       slivers: <Widget>[
@@ -18,7 +21,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
           floating: true,
           flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                "KAPLAN",
+                _animal.name,
                 style: TextStyle(
                     fontFamily: "CoveredByYourGrace",
                     color: Colors.white,
@@ -26,7 +29,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
               ),
               centerTitle: true,
               background: Image.network(
-                "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                _animal.image.detailImage,
                 fit: BoxFit.fill,
               )),
         ),
@@ -91,7 +94,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
                 Expanded(
                   child: Center(
                       child: Text(
-                    "10-14 yıl",
+                    _animal.smallDescription.weight,
                     style: TextStyle(fontSize: 20, fontFamily: "IndieFlower"),
                   )),
                   flex: 1,
@@ -102,7 +105,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
                 ),
                 Expanded(
                   child: Center(
-                      child: Text("190 kg.",
+                      child: Text(_animal.smallDescription.lifeTime,
                           style: TextStyle(
                               fontSize: 20, fontFamily: "IndieFlower"))),
                   flex: 1,
@@ -138,7 +141,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "Kaplanlar genel olarak yalnız başlarına gezerler ve bölgeci hayvanlardır. Kendi bölgelerini korurlar ve bölgelerine giren diğer kaplanlara, yırtıcılara ve insanlara karşı oldukça agresif olabilirler. .",
+                _animal.mediumDescription,
                 style: TextStyle(fontFamily: "IndieFlower", fontSize: 20),
               ),
             )
@@ -171,7 +174,7 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "Kaplanlar genel olarak yalnız başlarına gezerler ve bölgeci hayvanlardır. Kendi bölgelerini korurlar ve bölgelerine giren diğer kaplanlara, yırtıcılara ve insanlara karşı oldukça agresif olabilirler. Modern kaplan türlerinin dokuzunun soyu tükenmiştir. Kalan altı tür de tehlike altındadır.",
+                _animal.detailDescription,
                 style: TextStyle(fontFamily: "IndieFlower", fontSize: 20),
               ),
             )

@@ -61,14 +61,14 @@ class Image {
 }
 
 class SmallDescription {
-  int lifeTime;
-  double weight;
+  String lifeTime;
+  String weight;
 
   SmallDescription({this.lifeTime, this.weight});
 
   SmallDescription.fromJson(Map<String, dynamic> json) {
-    lifeTime = json['lifeTime'];
-    weight = json['weight'];
+    lifeTime = json['lifeTime'].toString();
+    weight = json['weight'].toString();
   }
 
   Map<String, dynamic> toJson() {
