@@ -92,11 +92,14 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
             Row(
               children: <Widget>[
                 Expanded(
-                  child: Center(
-                      child: Text(
-                    _animal.smallDescription.weight,
-                    style: TextStyle(fontSize: 20, fontFamily: "IndieFlower"),
-                  )),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                        child: Text(
+                      _animal.smallDescription.lifeTime,
+                      style: TextStyle(fontSize: 20, fontFamily: "IndieFlower"),
+                    )),
+                  ),
                   flex: 1,
                 ),
                 Container(
@@ -104,10 +107,13 @@ class _AnimalDetailViewState extends State<AnimalDetailView> {
                   child: VerticalDivider(),
                 ),
                 Expanded(
-                  child: Center(
-                      child: Text(_animal.smallDescription.lifeTime,
-                          style: TextStyle(
-                              fontSize: 20, fontFamily: "IndieFlower"))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                        child: Text(_animal.smallDescription.weight,
+                            style: TextStyle(
+                                fontSize: 20, fontFamily: "IndieFlower"))),
+                  ),
                   flex: 1,
                 )
               ],
